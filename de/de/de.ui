@@ -137,9 +137,43 @@
     </hint>
    </hints>
   </connection>
+  <connection>
+   <sender>remiszero</sender>
+   <signal>clicked()</signal>
+   <receiver>deClass</receiver>
+   <slot>zero()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>365</x>
+     <y>268</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>299</x>
+     <y>199</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>scoretotal</sender>
+   <signal>clicked()</signal>
+   <receiver>deClass</receiver>
+   <slot>total()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>107</x>
+     <y>264</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>299</x>
+     <y>199</y>
+    </hint>
+   </hints>
+  </connection>
  </connections>
  <slots>
   <slot>tirage()</slot>
   <slot>score()</slot>
+  <slot>zero()</slot>
+  <slot>total()</slot>
  </slots>
 </ui>

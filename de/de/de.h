@@ -16,9 +16,12 @@ public:
 private:
     Ui::deClass ui;
 	int n;
+	int d;
 
 public slots:
 
 	void tirage();
 	void score();
+	void zero();
+	void total();
 };

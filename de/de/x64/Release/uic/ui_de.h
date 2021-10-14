@@ -27,7 +27,6 @@ public:
     QWidget *centralWidget;
     QLabel *totaldestour;
     QPushButton *remiszero;
-    QPushButton *afficheValeur;
     QPushButton *scoretotal;
     QLabel *score;
     QPushButton *tirageDe;
@@ -48,15 +47,12 @@ public:
         remiszero = new QPushButton(centralWidget);
         remiszero->setObjectName(QString::fromUtf8("remiszero"));
         remiszero->setGeometry(QRect(300, 220, 131, 31));
-        afficheValeur = new QPushButton(centralWidget);
-        afficheValeur->setObjectName(QString::fromUtf8("afficheValeur"));
-        afficheValeur->setGeometry(QRect(60, 50, 171, 41));
         scoretotal = new QPushButton(centralWidget);
         scoretotal->setObjectName(QString::fromUtf8("scoretotal"));
         scoretotal->setGeometry(QRect(70, 220, 75, 23));
         score = new QLabel(centralWidget);
         score->setObjectName(QString::fromUtf8("score"));
-        score->setGeometry(QRect(180, 130, 101, 41));
+        score->setGeometry(QRect(180, 70, 141, 101));
         tirageDe = new QPushButton(centralWidget);
         tirageDe->setObjectName(QString::fromUtf8("tirageDe"));
         tirageDe->setGeometry(QRect(350, 50, 81, 31));
@@ -75,6 +71,8 @@ public:
         retranslateUi(deClass);
         QObject::connect(tirageDe, SIGNAL(clicked()), deClass, SLOT(tirage()));
         QObject::connect(tirageDe, SIGNAL(clicked()), deClass, SLOT(score()));
+        QObject::connect(remiszero, SIGNAL(clicked()), deClass, SLOT(zero()));
+        QObject::connect(scoretotal, SIGNAL(clicked()), deClass, SLOT(total()));
 
         QMetaObject::connectSlotsByName(deClass);
     } // setupUi
@@ -84,7 +82,6 @@ public:
         deClass->setWindowTitle(QCoreApplication::translate("deClass", "de", nullptr));
         totaldestour->setText(QString());
         remiszero->setText(QCoreApplication::translate("deClass", "remise \303\240 z\303\251ro du score", nullptr));
-        afficheValeur->setText(QCoreApplication::translate("deClass", "afficher la valeur du d\303\251", nullptr));
         scoretotal->setText(QCoreApplication::translate("deClass", "score total", nullptr));
         score->setText(QString());
         tirageDe->setText(QCoreApplication::translate("deClass", "tirer le d\303\251", nullptr));

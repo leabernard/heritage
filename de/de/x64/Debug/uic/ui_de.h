@@ -71,6 +71,8 @@ public:
         retranslateUi(deClass);
         QObject::connect(tirageDe, SIGNAL(clicked()), deClass, SLOT(tirage()));
         QObject::connect(tirageDe, SIGNAL(clicked()), deClass, SLOT(score()));
+        QObject::connect(remiszero, SIGNAL(clicked()), deClass, SLOT(zero()));
+        QObject::connect(scoretotal, SIGNAL(clicked()), deClass, SLOT(total()));
 
         QMetaObject::connectSlotsByName(deClass);
     } // setupUi

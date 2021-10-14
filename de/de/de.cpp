@@ -18,3 +18,18 @@ void de::score()
 
 	ui.score->setText(QLocale().toString(n));
 }
+
+
+void de::zero()
+{
+	n = 0;
+
+	ui.score->setText(QLocale().toString(n));
+}
+
+void de::total()
+{
+
+	d = n + n;
+	ui.totaldestour->setText(QLocale().toString(d));
+}
