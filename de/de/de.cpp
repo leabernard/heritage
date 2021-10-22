@@ -30,6 +30,6 @@ void de::zero()
 void de::total()
 {
 
-	d = n + n;
-	ui.totaldestour->setText(QLocale().toString(d));
+  p += n;
+	ui.totaldestour->setText(QLocale().toString(p));
 }

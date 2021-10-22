@@ -16,10 +16,10 @@ public:
 private:
     Ui::deClass ui;
 	int n;
-	int d;
+	int p;
 
 public slots:
-
+	// de de::operator++(int n);
 	void tirage();
 	void score();
 	void zero();
