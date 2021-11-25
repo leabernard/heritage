@@ -24,4 +24,7 @@ public slots:
 	void score();
 	void zero();
 	void total();
+	void dehistor();
+	void denormal();
+	void tableau();
 };

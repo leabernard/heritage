@@ -1,4 +1,5 @@
 
+/*
 #pragma once
 
 #include <QtWidgets/QMainWindow>
@@ -20,6 +21,8 @@ private:
 
 public slots:
 	// de de::operator++(int n);
-	void historque();
+	void dehistor();
+	void denormal();
 
 };
+*/

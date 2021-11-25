@@ -29,6 +29,8 @@ QT_BEGIN_NAMESPACE
 class Ui_deClass
 {
 public:
+    QAction *de;
+    QAction *dehisto;
     QAction *actionde;
     QAction *actiondehisto;
     QWidget *centralWidget;
@@ -42,7 +44,6 @@ public:
     QPushButton *nbrDeJets;
     QLineEdit *nb2jets;
     QMenuBar *menuBar;
-    QMenu *menuchoisir;
     QMenu *menufichier;
     QToolBar *mainToolBar;
     QStatusBar *statusBar;
@@ -51,7 +52,11 @@ public:
     {
         if (deClass->objectName().isEmpty())
             deClass->setObjectName(QString::fromUtf8("deClass"));
-        deClass->resize(636, 421);
+        deClass->resize(636, 398);
+        de = new QAction(deClass);
+        de->setObjectName(QString::fromUtf8("de"));
+        dehisto = new QAction(deClass);
+        dehisto->setObjectName(QString::fromUtf8("dehisto"));
         actionde = new QAction(deClass);
         actionde->setObjectName(QString::fromUtf8("actionde"));
         actiondehisto = new QAction(deClass);
@@ -69,7 +74,7 @@ public:
         scoretotal->setGeometry(QRect(30, 150, 75, 23));
         score = new QLabel(centralWidget);
         score->setObjectName(QString::fromUtf8("score"));
-        score->setGeometry(QRect(20, 10, 141, 101));
+        score->setGeometry(QRect(100, 60, 81, 61));
         tirageDe = new QPushButton(centralWidget);
         tirageDe->setObjectName(QString::fromUtf8("tirageDe"));
         tirageDe->setGeometry(QRect(190, 30, 81, 31));
@@ -111,8 +116,6 @@ public:
         menuBar = new QMenuBar(deClass);
         menuBar->setObjectName(QString::fromUtf8("menuBar"));
         menuBar->setGeometry(QRect(0, 0, 636, 21));
-        menuchoisir = new QMenu(menuBar);
-        menuchoisir->setObjectName(QString::fromUtf8("menuchoisir"));
         menufichier = new QMenu(menuBar);
         menufichier->setObjectName(QString::fromUtf8("menufichier"));
         deClass->setMenuBar(menuBar);
@@ -124,15 +127,16 @@ public:
         deClass->setStatusBar(statusBar);
 
         menuBar->addAction(menufichier->menuAction());
-        menuBar->addAction(menuchoisir->menuAction());
-        menuchoisir->addAction(actionde);
-        menuchoisir->addAction(actiondehisto);
+        menufichier->addAction(actionde);
+        menufichier->addAction(actiondehisto);
 
         retranslateUi(deClass);
         QObject::connect(tirageDe, SIGNAL(clicked()), deClass, SLOT(tirage()));
         QObject::connect(tirageDe, SIGNAL(clicked()), deClass, SLOT(score()));
         QObject::connect(remiszero, SIGNAL(clicked()), deClass, SLOT(zero()));
         QObject::connect(scoretotal, SIGNAL(clicked()), deClass, SLOT(total()));
+        QObject::connect(actionde, SIGNAL(triggered(bool)), deClass, SLOT(denormal()));
+        QObject::connect(actiondehisto, SIGNAL(triggered()), deClass, SLOT(dehistor()));
 
         QMetaObject::connectSlotsByName(deClass);
     } // setupUi
@@ -140,7 +144,9 @@ public:
     void retranslateUi(QMainWindow *deClass)
     {
         deClass->setWindowTitle(QCoreApplication::translate("deClass", "de", nullptr));
-        actionde->setText(QCoreApplication::translate("deClass", "de", nullptr));
+        de->setText(QCoreApplication::translate("deClass", "de", nullptr));
+        dehisto->setText(QCoreApplication::translate("deClass", "dehisto", nullptr));
+        actionde->setText(QCoreApplication::translate("deClass", "de ", nullptr));
         actiondehisto->setText(QCoreApplication::translate("deClass", "dehisto", nullptr));
         totaldestour->setText(QString());
         remiszero->setText(QCoreApplication::translate("deClass", "remise \303\240 z\303\251ro du score", nullptr));
@@ -167,7 +173,6 @@ public:
         QTableWidgetItem *___qtablewidgetitem8 = tableWidget->verticalHeaderItem(6);
         ___qtablewidgetitem8->setText(QCoreApplication::translate("deClass", "7", nullptr));
         nbrDeJets->setText(QCoreApplication::translate("deClass", "nombre de jets", nullptr));
-        menuchoisir->setTitle(QCoreApplication::translate("deClass", "choisir", nullptr));
         menufichier->setTitle(QCoreApplication::translate("deClass", "fichier", nullptr));
     } // retranslateUi
 

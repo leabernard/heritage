@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>636</width>
-    <height>421</height>
+    <height>398</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -56,10 +56,10 @@
    <widget class="QLabel" name="score">
     <property name="geometry">
      <rect>
-      <x>20</x>
-      <y>10</y>
-      <width>141</width>
-      <height>101</height>
+      <x>100</x>
+      <y>60</y>
+      <width>81</width>
+      <height>61</height>
      </rect>
     </property>
     <property name="text">
@@ -180,20 +180,14 @@
      <height>21</height>
     </rect>
    </property>
-   <widget class="QMenu" name="menuchoisir">
-    <property name="title">
-     <string>choisir</string>
-    </property>
-    <addaction name="actionde"/>
-    <addaction name="actiondehisto"/>
-   </widget>
    <widget class="QMenu" name="menufichier">
     <property name="title">
      <string>fichier</string>
     </property>
+    <addaction name="actionde"/>
+    <addaction name="actiondehisto"/>
    </widget>
    <addaction name="menufichier"/>
-   <addaction name="menuchoisir"/>
   </widget>
   <widget class="QToolBar" name="mainToolBar">
    <attribute name="toolBarArea">
@@ -204,9 +198,19 @@
    </attribute>
   </widget>
   <widget class="QStatusBar" name="statusBar"/>
-  <action name="actionde">
+  <action name="de">
    <property name="text">
     <string>de</string>
+   </property>
+  </action>
+  <action name="dehisto">
+   <property name="text">
+    <string>dehisto</string>
+   </property>
+  </action>
+  <action name="actionde">
+   <property name="text">
+    <string>de </string>
    </property>
   </action>
   <action name="actiondehisto">
@@ -284,12 +288,45 @@
     </hint>
    </hints>
   </connection>
+  <connection>
+   <sender>actionde</sender>
+   <signal>triggered(bool)</signal>
+   <receiver>deClass</receiver>
+   <slot>denormal()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>317</x>
+     <y>198</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>actiondehisto</sender>
+   <signal>triggered()</signal>
+   <receiver>deClass</receiver>
+   <slot>dehistor()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>317</x>
+     <y>198</y>
+    </hint>
+   </hints>
+  </connection>
  </connections>
  <slots>
   <slot>tirage()</slot>
   <slot>score()</slot>
   <slot>zero()</slot>
   <slot>total()</slot>
-  <slot>dehisto()</slot>
+  <slot>denormal()</slot>
+  <slot>dehistor()</slot>
  </slots>
 </ui>
